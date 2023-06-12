@@ -1,9 +1,9 @@
-import instance from ".";
+import { instance, authInstance } from ".";
 import jwt_decode from "jwt-decode";
 const login = async (userInfo) => {
   try {
-    const { data } = await instance.post("/login", userInfo);
-    storeToken(data.token);
+    const { data } = await authInstance.post("/login", userInfo);
+    storeToken(data.access);
     return data;
   } catch (error) {
     console.log(error);
@@ -14,17 +14,17 @@ const register = async (userInfo) => {
   try {
     const formData = new FormData();
     for (const key in userInfo) formData.append(key, userInfo[key]);
-    const { data } = await instance.post("/register", formData);
-    storeToken(data.token);
+    const { data } = await authInstance.post("/register", formData);
+    storeToken(data.access);
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response);
   }
 };
 
 const getProfile = async () => {
   try {
-    const { data } = await instance.get("/profile");
+    const { data } = await authInstance.get("/profile");
     return data;
   } catch (error) {
     console.log(error);
@@ -49,17 +49,17 @@ const getTransactions = async () => {
   }
 };
 
-const storeToken = (token) => {
-  localStorage.setItem("token", token);
+const storeToken = (access) => {
+  localStorage.setItem("access", access);
 };
 
 const checkToken = () => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    const decode = jwt_decode(token);
+  const access = localStorage.getItem("access");
+  if (access) {
+    const decode = jwt_decode(access);
     const currentTime = Date.now() / 1000;
     if (decode.exp < currentTime) {
-      localStorage.removeItem("token");
+      localStorage.removeItem("access");
       return false;
     }
     return true;
@@ -68,7 +68,7 @@ const checkToken = () => {
 };
 
 const logout = () => {
-  localStorage.removeItem("token");
+  localStorage.removeItem("access");
 };
 
 export {
