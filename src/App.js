@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
     setUser(checkToken());
+    console.log(checkToken());
   }, []);
 
   return (

@@ -28,7 +28,7 @@ export const Register = () => {
     console.log(userInfo);
   };
   if (user) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
   return (
     <div className="main-big-container">
@@ -37,7 +37,7 @@ export const Register = () => {
           {" "}
           <h1>REGISTER</h1>
         </div>
-        {/* <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <div>
             <label htmlFor="username">username</label>
             <input
@@ -72,8 +72,8 @@ export const Register = () => {
           <div className="flex justify-center">
             <button type="submit">Register</button>
           </div>
-        </form> */}
-        <Modal.Body>
+        </form>
+        {/* <Modal.Body>
           <form onSubmit={handleFormSubmit}>
             <InputGroup className="usernameSignUpInput">
               <InputGroup.Text></InputGroup.Text>
@@ -107,7 +107,7 @@ export const Register = () => {
               SIGN UP
             </Button>
           </form>
-        </Modal.Body>
+        </Modal.Body> */}
       </div>
     </div>
   );

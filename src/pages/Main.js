@@ -1,7 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
 const Main = () => {
+  const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
+  if (user) {
+    return <Navigate to="/home" />;
+  }
   return (
     <div className="main-big-container">
       <div className="main-container">
