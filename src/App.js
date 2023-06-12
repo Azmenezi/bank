@@ -6,7 +6,7 @@ import { Register } from "./pages/Register";
 import { Transactions } from "./pages/Transactions";
 import { MyAccount } from "./pages/MyAccount";
 import Users from "./pages/Users";
-import UserContext from "./context/UseContext";
+import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
 import { checkToken } from "./API/auth";
 import Main from "./pages/Main";
@@ -16,6 +16,7 @@ function App() {
 
   useEffect(() => {
     setUser(checkToken());
+    console.log(checkToken());
   }, []);
 
   return (

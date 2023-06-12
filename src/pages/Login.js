@@ -1,37 +1,38 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { login } from "../API/auth";
+import React, { useContext } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+import { checkToken, login } from "../API/auth";
 import { useState } from "react";
 import UserSvg from "../SVGs/UserSvg";
 import LockSvg from "../SVGs/LockSvg";
 import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
+import UserContext from "../context/UserContext";
 
 export const Login = () => {
+  const [user, setUser] = useContext(UserContext);
   const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const log_in = useMutation(() => login(userInfo), {
-    onSuccess: () => queryClient.invalidateQueries(userInfo),
+  const { mutate: loginFn } = useMutation({
+    mutationFn: () => login(userInfo),
+    onSuccess: () => setUser(checkToken()),
   });
-
-  if (!userInfo) {
-    return navigate("/");
-  }
 
   const handleChange = (e) => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    log_in.mutate();
-    // Add login logic here
+    loginFn();
   };
+
+  if (user) {
+    return <Navigate to="/home" />;
+  }
   return (
     <div className="main-big-container">
       <div className="main-container">
         <div className="registerText">
-          {" "}
           <h1>LOG IN</h1>
         </div>
 
@@ -66,7 +67,7 @@ export const Login = () => {
                 cursor: "pointer",
               }}
             >
-              SIGN UP
+              Log In
             </Button>
           </form>
         </Modal.Body>

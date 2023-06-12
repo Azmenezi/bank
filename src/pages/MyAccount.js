@@ -1,5 +1,10 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 export const MyAccount = () => {
-  return <div>MyAccount</div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 };
