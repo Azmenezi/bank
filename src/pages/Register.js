@@ -21,8 +21,8 @@ export const Register = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Add register logic here
     registerFn();
+    console.log(userInfo);
   };
   if (user) {
     return <Navigate to="/" />;
@@ -31,8 +31,42 @@ export const Register = () => {
     <div className="main-big-container">
       <div className="main-container">
         <div className="registerText">REGISTER</div>
+        <form onSubmit={handleFormSubmit}>
+          <div>
+            <label htmlFor="username">username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input></input>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="image">Profile Image</label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="flex justify-center">
+            <button type="submit">Register</button>
+          </div>
+        </form>
       </div>
     </div>
   );
