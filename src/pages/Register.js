@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import { checkToken, register } from "../API/auth";
 import { useMutation } from "@tanstack/react-query";
-import UserContext from "../context/UseContext";
+import UserContext from "../context/UserContext";
 import { Navigate } from "react-router-dom";
 import UserSvg from "../SVGs/UserSvg";
 import LockSvg from "../SVGs/LockSvg";

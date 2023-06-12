@@ -6,10 +6,11 @@ import { Register } from "./pages/Register";
 import { Transactions } from "./pages/Transactions";
 import { MyAccount } from "./pages/MyAccount";
 import Users from "./pages/Users";
-import UserContext from "./context/UseContext";
+import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
 import { checkToken } from "./API/auth";
 import Main from "./pages/Main";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -21,6 +22,7 @@ function App() {
   return (
     <UserContext.Provider value={[user, setUser]}>
       <div>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/home" element={<Home />} />
