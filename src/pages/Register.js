@@ -27,7 +27,13 @@ export const Register = () => {
   if (user) {
     return <Navigate to="/" />;
   }
-  return <div>
-    
-  </div>;
+  return (
+    <div className="main-big-container">
+      <div className="main-container">
+        <div className="registerText">REGISTER</div>
+
+        <input></input>
+      </div>
+    </div>
+  );
 };
