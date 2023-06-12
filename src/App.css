@@ -1,6 +1,11 @@
 .main-big-container {
   height: 100vh;
-  background-color: red;
+  background: linear-gradient(
+      0.14deg,
+      rgba(255, 255, 255, 0.2) 19.87%,
+      rgba(12, 22, 24, 0.2) 100.94%
+    ),
+    #131c20;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,12 +15,17 @@
   border-radius: 20px;
   width: 700px;
   height: 500px;
-  background-color: blue;
+  background: linear-gradient(
+      0.14deg,
+      rgba(255, 255, 255, 0.2) 19.87%,
+      rgba(12, 22, 24, 0.2) 100.94%
+    ),
+    #131c20;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 10%;
+  gap: 2%;
 }
 
 .main-buttons {
@@ -23,4 +33,51 @@
   height: 10%;
   font-size: x-large;
   border-radius: 15px;
+  background-color: red;
+}
+
+.registerText {
+  color: #ffffff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 5px;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 15px;
+  padding-bottom: 10%;
+}
+
+.usernameSignUpInput {
+  margin: auto;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  padding-left: 50%;
+}
+
+.usernameSignUpInput svg {
+  color: white;
+}
+
+.passwordSignUpInput {
+  transform: translate(-50%, -50%);
+  padding-left: 50%;
+  margin: auto;
+}
+.passwordSignUpInput svg {
+  color: white;
+}
+
+.Button_ {
+  width: 50%;
+
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  left: 49%;
+  bottom: 30%;
+  margin: auto;
+  padding: auto;
+  background: #ffffff;
+  box-shadow: 0px 4px 50px 10px rgba(23, 34, 39, 0.15);
+  border-radius: 10px;
 }
