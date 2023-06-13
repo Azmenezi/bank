@@ -1,16 +1,9 @@
-import React, { useContext } from "react";
-import Navbar from "../components/Navbar";
-import UserContext from "../context/UserContext";
-import { Navigate } from "react-router-dom";
+import React from "react";
 
 const Home = () => {
-  const [user, setUser] = useContext(UserContext);
-  if (!user) {
-    return <Navigate to="/" />;
-  }
   return (
-    <div>
-      <Navbar />
+    <div className="main-big-container">
+      <h1 className="hometitle">BANK</h1>
     </div>
   );
 };

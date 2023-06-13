@@ -19,8 +19,28 @@ export function addTransactions(x) {
   return axios.post(`${transactionURL}/transactions`, x);
 }
 
-export function getTransactionID(id) {
-  return axios.get(`${transactionURL}/transactions/${id}`);
+export async function getTransactionID(id) {
+  return await axios.get(`${transactionURL}/transactions/${id}`);
 }
 
-export default { getTransctions };
+const createTran = async (TranInfo) => {
+  try {
+    const { data } = await authInstance.post("/transactions", TranInfo);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateTran = async (TranInfo) => {
+  try {
+    const { data } = await authInstance.put(
+      `/transactions/${TranInfo._id}`,
+      TranInfo
+    );
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export default { getTransctions, updateTran, createTran };

@@ -19,7 +19,20 @@ const Navbar = () => {
           <div>My Account</div>
         </NavLink>
 
-        <button onClick={logOutFn}>Logout</button>
+        <button
+          className="logout-"
+          style={{
+            cursor: "pointer",
+            background: "#131c20",
+            color: "white",
+            width: "70px",
+            border: "none",
+            borderRadius: "5px",
+          }}
+          onClick={logOutFn}
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

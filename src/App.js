@@ -10,7 +10,7 @@ import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
 import { checkToken } from "./API/auth";
 import Main from "./pages/Main";
-import Navbar from "./components/Navbar";
+import Transaction from "./pages/Transaction";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -23,13 +23,13 @@ function App() {
   return (
     <UserContext.Provider value={[user, setUser]}>
       <div>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/transaction" element={<Transactions />} />
+          <Route path="/transaction/:tranId" element={<Transaction />} />
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/users" element={<Users />} />
         </Routes>

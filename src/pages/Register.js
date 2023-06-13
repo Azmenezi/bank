@@ -38,7 +38,7 @@ export const Register = () => {
           <h1>REGISTER</h1>
         </div>
         <form onSubmit={handleFormSubmit}>
-          <div>
+          {/* <div>
             <label htmlFor="username">username</label>
             <input
               type="text"
@@ -71,9 +71,9 @@ export const Register = () => {
           </div>
           <div className="flex justify-center">
             <button type="submit">Register</button>
-          </div>
+          </div> */}
         </form>
-        {/* <Modal.Body>
+        <Modal.Body>
           <form onSubmit={handleFormSubmit}>
             <InputGroup className="usernameSignUpInput">
               <InputGroup.Text></InputGroup.Text>
@@ -83,6 +83,7 @@ export const Register = () => {
                 name="username"
                 type="text"
                 onChange={handleChange}
+                style={{ width: "300px", height: "25px" }}
               />
             </InputGroup>
             <InputGroup className="passwordSignUpInput">
@@ -93,8 +94,27 @@ export const Register = () => {
                 type="password"
                 onChange={handleChange}
                 placeholder="Password"
+                style={{
+                  width: "300px",
+                  height: "25px",
+                  backgroundColor: "",
+                }}
               />
             </InputGroup>
+            <input type="file" hidden />
+            <button
+              style={{
+                border: "none",
+                borderRadius: "5px",
+                color: "black",
+                cursor: "pointer",
+              }}
+              onChange={handleChange}
+              required
+            >
+              Choose File
+            </button>
+            <span>No Image Chosen</span>
 
             <Button
               className="Button_"
@@ -102,12 +122,13 @@ export const Register = () => {
               type="submit"
               style={{
                 cursor: "pointer",
+                marginTop: "15px",
               }}
             >
               SIGN UP
             </Button>
           </form>
-        </Modal.Body> */}
+        </Modal.Body>
       </div>
     </div>
   );

@@ -21,6 +21,14 @@ const register = async (userInfo) => {
     console.log(error.response);
   }
 };
+const getAllUsers = async () => {
+  try {
+    const { data } = await instance.get("/auth/users");
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const getProfile = async () => {
   try {
@@ -80,4 +88,5 @@ export {
   storeToken,
   checkToken,
   logout,
+  getAllUsers,
 };
