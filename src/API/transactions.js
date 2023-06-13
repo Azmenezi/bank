@@ -1,4 +1,4 @@
-import { authInstance } from ".";
+import { authInstance, instance } from ".";
 
 const getTransctions = async () => {
   try {
@@ -37,4 +37,26 @@ const updateTran = async (TranInfo) => {
     console.log(error);
   }
 };
-export default { getTransctions, updateTran, createTran };
+
+const deposit = async (amount) => {
+  try {
+    const { data } = await instance.post("/deposit", {
+      amount: Number(amount),
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+const withdraw = async (amount) => {
+  try {
+    const { data } = await instance.post("/withdraw", {
+      amount: Number(amount),
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getTransctions, updateTran, createTran, deposit, withdraw };

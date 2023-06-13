@@ -25,8 +25,8 @@ const Userlist = () => {
     return users.map((user) => {
       return (
         <button className="accInfo" onClick={() => navigate("/user-details/" + user._id)}>
-          <h4>{user.username}</h4>
-          <h3>{user.account}</h3>
+          <h4>username: {user.username}</h4>
+          <h3> Account: {user.account}</h3>
         </button>
       );
     });

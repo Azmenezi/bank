@@ -16,7 +16,8 @@ const User = () => {
     queryKey: ["userElem"],
     queryFn: () => getUserId(userId),
   });
-  console.log(userElem);
+
+ 
   if (userElemLoading) {
     return (
       <div>
@@ -59,11 +60,14 @@ const User = () => {
               <div className="profile-container">
                 <div className="profile">
                   <div>
-                    <img src={userElem.image} className="profile-img" />
+                    <img
+                      src={`https://coded-projects-api.herokuapp.com${userElem.image}`}
+                      className="profile-img"
+                    />
                   </div>
                   <div>
                     <div className="profile-text">
-                      userElemname: {userElem.userElemname}
+                      username: {userElem.username}
                     </div>
                     <div className="profile-text">
                       account number: {userElem.account}

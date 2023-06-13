@@ -1,10 +1,67 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import chip from "../images/chip.png";
 import logo from "../images/logo.png";
 import Navbar from "../components/Navbar";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { checkToken, getBalance } from "../API/auth";
+import { deposit, withdraw } from "../API/transactions";
+import UserContext from "../context/UserContext";
+import { Navigate } from "react-router-dom";
 const TranOptions = ({ userInfo }) => {
+  const [user, setUser] = useContext(UserContext);
+  const [balanceInfo, setBalanceInfo] = useState();
+  const {
+    data: balance,
+    isLoading: balanceLoading,
+    isError: balanceError,
+  } = useQuery({
+    queryKey: ["balance"],
+    queryFn: getBalance,
+  });
+  if (balanceLoading) {
+    console.log("loading");
+  }
+
+  if (balanceError) {
+    console.log("Error");
+  }
+
+  const { mutate: depositFn } = useMutation({
+    mutationFn: (amount) => deposit(amount),
+  });
+
+  const { mutate: withdrawFn } = useMutation({
+    mutationFn: (amount) => withdraw(amount),
+  });
+  const handleChange = (e) => {
+    setBalanceInfo(e.target.value);
+  };
+
+  const handleFormSubmit = (e, actionType) => {
+    e.preventDefault();
+
+    if (Number(balanceInfo) <= 0) {
+      alert("The deposit amount should be greater than 0");
+      return;
+    }
+
+    if (actionType === "DEPOSIT") {
+      depositFn(balanceInfo);
+    } else if (actionType === "WITHDRAW") {
+      if (Number(balanceInfo) > Number(balance.balance)) {
+        alert("Insufficient balance for withdrawal!");
+        return;
+      }
+      withdrawFn(balanceInfo);
+    }
+    {
+    }
+  };
+  // console.log(balanceInfo);
+  // console.log(balance.balance);
+  if (!user) {
+    return <Navigate to="/" />;
+  }
   return (
     <>
       <Navbar />
@@ -34,8 +91,31 @@ const TranOptions = ({ userInfo }) => {
           </div>
         </div>
         <div className="With-Depo">
-          <button className="with-depo-btn">WITHDRAW</button>
-          <button className="with-depo-btn">DEPOSIT</button>
+          <div className="mb-4">
+            <label htmlFor="Enter the blance to deposit/withdraw" className="">
+              balance
+            </label>
+            <input
+              type="balance"
+              name="balance"
+              id="balance"
+              onChange={handleChange}
+              className=""
+              required
+            />
+          </div>
+          <button
+            className="with-depo-btn"
+            onClick={(e) => handleFormSubmit(e, "WITHDRAW")}
+          >
+            WITHDRAW
+          </button>
+          <button
+            className="with-depo-btn"
+            onClick={(e) => handleFormSubmit(e, "DEPOSIT")}
+          >
+            DEPOSIT
+          </button>
         </div>
       </div>
     </>
