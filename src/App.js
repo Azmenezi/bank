@@ -4,13 +4,14 @@ import Home from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Transactions } from "./pages/Transactions";
-import  Transaction  from "./pages/Transaction";
+import Transaction from "./pages/Transaction";
 import { MyAccount } from "./pages/MyAccount";
 import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
 import { checkToken } from "./API/auth";
 import Main from "./pages/Main";
 import User from "./components/User";
+import TranOptions from "./pages/TranOptions";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/transaction" element={<Transactions />} />
           <Route path="/transaction/:tranId" element={<Transaction />} />
+          <Route path="/tranOptions" element={<TranOptions />} />
           <Route path="/my-account" element={<MyAccount />} />
           <Route path="/user-details/:userId" element={<User />} />
         </Routes>

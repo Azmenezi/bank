@@ -1,5 +1,6 @@
 .main-big-container {
   height: 100vh;
+  width: 100vw;
   background: linear-gradient(
       0.14deg,
       rgba(249, 255, 237, 0.2) 19.87%,
@@ -276,4 +277,292 @@
 }
 .user-container {
   margin-left: 280px;
+}
+
+.userInfoAcc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.tranbutton {
+  position: absolute;
+  bottom: -50%;
+  right: -15%;
+  border-radius: 6px;
+  background-color: #f5680b;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: bold;
+  color: #131c20;
+}
+
+/* ///////////////////////////////////////
+////////////////////////////////////// */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.container {
+  background: url("images/bg.png");
+  background-size: cover;
+  width: 430px;
+  padding: 30px;
+  border-radius: 40px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.top .logo img {
+  width: 55px;
+}
+
+.top .logo p {
+  font-size: 16px;
+}
+
+.top .chip img {
+  width: 70px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom .number {
+  margin: 20px 0;
+}
+
+.bottom .number h3 {
+  font-size: 14px;
+}
+
+.bottom .number p {
+  font-size: 24px;
+  letter-spacing: 3px;
+  word-spacing: 3px;
+}
+
+.bottom .nameDate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom .nameDate .name {
+  align-self: flex-end;
+  letter-spacing: 1px;
+}
+
+.bottom .nameDate .date .valid {
+  font-size: 12px;
+}
+
+.With-Depo {
+  flex-direction: column;
+  display: flex;
+  margin-left: 10%;
+  margin-top: 40px;
+  width: 15%;
+  border-radius: 12px;
+}
+.with-depo-btn {
+  margin-bottom: 20%;
+  border-radius: 6px;
+  letter-spacing: 5px;
+  font-weight: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  line-height: 55px;
+  background: linear-gradient(180deg, #2a2e2e 0%, #171b1b 100%);
+  box-shadow: 0px 4px 50px 10px rgba(255, 102, 0, 0.993);
+  border: transparent;
+  color: #ff6600;
+  cursor: pointer;
+
+  box-shadow: 0px 4px 4px rgba(255, 139, 6, 0.87);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.with-depo-btn:hover {
+  color: #ff9900;
+  background: #ffffff;
+}
+
+/* //////////////////////////////
+/////////////////////////////
+//////////////////////////// */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+** {
+  margin: auto;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* .scrollbar {
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+} */
+
+.body2 {
+  height: 100vh;
+  width: 100vw;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageSection1 {
+  background-image: url(images/image1.jpg);
+  min-height: 400px;
+}
+.imageSection2 {
+  background-image: url(images/image2.jpg);
+  min-height: 400px;
+}
+.imageSection3 {
+  background-image: url(images/image3.jpg);
+  min-height: 400px;
+}
+.imageSection1,
+.imageSection2,
+.imageSection3 {
+  position: relative;
+  background-position: center;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.text {
+  font-size: 25px;
+  padding: 20px 40px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: white;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.486);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.sectionLight {
+  background: linear-gradient(
+      0.14deg,
+      rgba(165, 167, 152, 0.445) 6.87%,
+      rgb(254, 255, 247) 100.94%
+    ),
+    #131c20;
+  color: rgba(0, 0, 0, 0.384);
+}
+.sectionDark {
+  background: rgba(0, 0, 0, 0.432);
+  color: white;
+}
+.sectionLight,
+.sectionDark {
+  padding: 50px 200px;
+  text-align: center;
+}
+.sectionLight h2,
+.sectionDark h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+.sectionLight p,
+.sectionDark p {
+  line-height: 25px;
+  font-size: 18px;
+}
+
+/* //////////////////////////////
+//////////////////////////////
+///////////////////////////////
+//////////////////////////////// */
+
+.containerSearch {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+}
+
+#checkbox {
+  display: none;
+}
+
+.containerSearch.search-box {
+  position: relative;
+  height: 50px;
+  max-width: 50px;
+  margin: auto;
+  box-shadow: rgba(212, 214, 190, 0.445);
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+#checkbox:checked ~ .search-box {
+  max-width: 380px;
+}
+.search-box input {
+  font-size: 20px;
+  position: absolute;
+  outline: none;
+  border: none;
+  background: #555;
+  height: 3%;
+  width: 18%;
+  border-radius: 25px;
+  padding-left: 20px;
+}
+
+.search-box.icon {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 25px;
+  color: #f5680b;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#checkbox:checked ~ .search-box.icon {
+  width: 30px;
+  color: white;
+  background-color: #f5680b;
+  border-radius: 0 25px 25px 0;
 }

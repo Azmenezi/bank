@@ -16,7 +16,7 @@ const Navbar = () => {
           <div>Home</div>
         </NavLink>
         <NavLink to="/my-account" className="navbar-btn">
-          <div>My Account</div>
+          <div>Account</div>
         </NavLink>
 
         <button

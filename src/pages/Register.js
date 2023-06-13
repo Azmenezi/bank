@@ -3,12 +3,13 @@ import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import { checkToken, register } from "../API/auth";
 import { useMutation } from "@tanstack/react-query";
 import UserContext from "../context/UserContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import UserSvg from "../SVGs/UserSvg";
 import LockSvg from "../SVGs/LockSvg";
 export const Register = () => {
   const [user, setUser] = useContext(UserContext);
   const [userInfo, setUserInfo] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     if (e.target.name === "image") {
@@ -26,6 +27,7 @@ export const Register = () => {
     e.preventDefault();
     registerFn();
     console.log(userInfo);
+    navigate("/home");
   };
   if (user) {
     return <Navigate to="/home" />;
@@ -101,7 +103,23 @@ export const Register = () => {
                 }}
               />
             </InputGroup>
-            <input type="file" hidden />
+            <div>
+              <label htmlFor="image">Avatar </label>
+              <input
+                style={{
+                  border: "none",
+                  borderRadius: "5px",
+                  color: "black",
+                  cursor: "pointer",
+                }}
+                type="file"
+                id="image"
+                name="image"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            {/* <input type="file" hidden />
             <button
               style={{
                 border: "none",
@@ -114,7 +132,7 @@ export const Register = () => {
             >
               Choose File
             </button>
-            <span>No Image Chosen</span>
+            <span>No Image Chosen</span> */}
 
             <Button
               className="Button_"
@@ -124,6 +142,7 @@ export const Register = () => {
                 cursor: "pointer",
                 marginTop: "15px",
               }}
+              onClick={handleFormSubmit}
             >
               SIGN UP
             </Button>

@@ -24,6 +24,7 @@ export const Login = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     loginFn();
+    // navigate("/home");
   };
 
   if (user) {
@@ -66,6 +67,7 @@ export const Login = () => {
               style={{
                 cursor: "pointer",
               }}
+              // onClick={handleFormSubmit}
             >
               Log In
             </Button>

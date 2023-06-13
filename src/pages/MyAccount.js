@@ -10,6 +10,7 @@ import {
 import { Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import Userlist from "../components/Userslist";
+import { Searchbar } from "../components/Searchbar";
 
 export const MyAccount = () => {
   const navigate = useNavigate();
@@ -18,8 +19,7 @@ export const MyAccount = () => {
   useEffect(() => {
     setUser(checkToken());
   }, []);
-  
-  
+
   const {
     data: profile,
     isLoading: profileLoading,
@@ -53,7 +53,7 @@ export const MyAccount = () => {
   if (profileError || balanceError || transactionsError) {
     console.log("Error");
   }
-  
+
   const renderTransactions = () => {
     if (transactionsLoading) {
       return <div>Loading...</div>;
@@ -114,18 +114,28 @@ export const MyAccount = () => {
               <div>
                 <img src={profile?.image} className="profile-img" />
               </div>
-              <div>
+              <div className="userInfoAcc">
                 <div className="profile-text">{profile?.username}</div>
                 <div className="profile-text">{balance?.balance}</div>
+                <button
+                  className="tranbutton"
+                  onClick={() => {
+                    navigate("/tranOptions");
+                  }}
+                >
+                  Transaction
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <Searchbar />
         <div className="account-big-container">
           <div className="account-container">
             <div className="acc-users-text">Users</div>
             <div className="acc-transations-text">Transactions History</div>
-            <Userlist/>
+
+            <Userlist />
             <div className="transactions-myaccount">{renderTransactions()}</div>
           </div>
         </div>
