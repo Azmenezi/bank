@@ -49,6 +49,26 @@ const getTransactions = async () => {
   }
 };
 
+const getUsers = async () => {
+  try {
+    const { data } = await authInstance.get("/users");
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+const getUserId = async (Id) => {
+  try {
+    const { data } = await authInstance.get(`/users`);
+    const index = data.findIndex((data) => {
+      return data._id == Id;
+    });
+    return data[index];
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const storeToken = (access) => {
   localStorage.setItem("access", access);
 };
@@ -80,4 +100,6 @@ export {
   storeToken,
   checkToken,
   logout,
+  getUsers,
+  getUserId,
 };

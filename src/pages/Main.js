@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
+
 const Main = () => {
   const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
@@ -10,12 +11,13 @@ const Main = () => {
   return (
     <div className="main-big-container">
       <div className="main-container">
+        <h3 className="createAccount">CREATE AN ACCOUNT</h3>
         <button className="main-buttons" onClick={() => navigate("/login")}>
-          Login
+          LOG IN
         </button>
 
         <button className="main-buttons" onClick={() => navigate("/register")}>
-          Register
+          REGISTER
         </button>
       </div>
     </div>

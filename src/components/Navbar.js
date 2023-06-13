@@ -12,14 +12,27 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <div className="navbar">
-        <NavLink to="/home">
+        <NavLink to="/home" className="navbar-btn">
           <div>Home</div>
         </NavLink>
-        <NavLink to="/my-account">
+        <NavLink to="/my-account" className="navbar-btn">
           <div>My Account</div>
         </NavLink>
 
-        <button onClick={logOutFn}>Logout</button>
+        <button
+          className="logout- navbar-btn"
+          style={{
+            cursor: "pointer",
+            background: "#131c20",
+            color: "white",
+            width: "70px",
+            border: "none",
+            borderRadius: "5px",
+          }}
+          onClick={logOutFn}
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

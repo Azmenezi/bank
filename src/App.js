@@ -4,13 +4,13 @@ import Home from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Transactions } from "./pages/Transactions";
+import  Transaction  from "./pages/Transaction";
 import { MyAccount } from "./pages/MyAccount";
-import Userslist from "./components/Userslist";
 import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
 import { checkToken } from "./API/auth";
 import Main from "./pages/Main";
-import UsersCard from "./components/UsersCard";
+import User from "./components/User";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -29,9 +29,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/transaction" element={<Transactions />} />
+          <Route path="/transaction/:tranId" element={<Transaction />} />
           <Route path="/my-account" element={<MyAccount />} />
-          <Route path="/users" element={<Userslist />} />
-          <Route path="/users-details/:userId" element={<UsersCard />} />
+          <Route path="/user-details/:userId" element={<User />} />
         </Routes>
       </div>
     </UserContext.Provider>

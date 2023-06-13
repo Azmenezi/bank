@@ -2,13 +2,16 @@
   height: 100vh;
   background: linear-gradient(
       0.14deg,
-      rgba(255, 255, 255, 0.2) 19.87%,
+      rgba(249, 255, 237, 0.2) 19.87%,
       rgba(12, 22, 24, 0.2) 100.94%
     ),
     #131c20;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hometitle {
+  color: #ff7b00;
 }
 
 .main-container {
@@ -17,33 +20,65 @@
   height: 500px;
   background: linear-gradient(
       0.14deg,
-      rgba(255, 255, 255, 0.2) 19.87%,
+      rgba(255, 255, 255, 0.767) 6.87%,
       rgba(12, 22, 24, 0.2) 100.94%
     ),
-    #131c20;
+    transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2%;
+  gap: 5%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.createAccount {
+  color: #ff6600;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 5px;
+  font-weight: 200;
+  font-size: 30px;
+  line-height: 15px;
+  padding-bottom: 10%;
+}
+.uploadUnderLine {
+  width: 300px;
+  margin-bottom: 20%;
+  border: 1px solid rgba(255, 255, 255, 0.71);
 }
 
 .main-buttons {
-  width: 40%;
-  height: 10%;
-  font-size: x-large;
+  width: 50%;
+  height: 9%;
+
+  letter-spacing: 5px;
+  font-weight: 15px;
+  font-size: 20px;
   border-radius: 15px;
- 
+  line-height: 15px;
+  background: linear-gradient(180deg, #2a2e2e 0%, #171b1b 100%);
+  box-shadow: 0px 4px 50px 10px rgba(255, 102, 0, 0.993);
+  border: transparent;
+  color: #ff6600;
+  cursor: pointer;
+
+  box-shadow: 0px 4px 4px rgba(255, 139, 6, 0.87);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.main-buttons:hover {
+  color: #fc9004;
+  background: #ffffff;
 }
 
 .registerText {
-  color: #ffffff;
+  color: #ff7d04;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   letter-spacing: 5px;
   font-weight: 200;
   font-size: 20px;
   line-height: 15px;
   padding-bottom: 10%;
+  height: 0;
 }
 
 .usernameSignUpInput {
@@ -54,7 +89,7 @@
 }
 
 .usernameSignUpInput svg {
-  color: white;
+  color: rgb(28, 32, 32);
 }
 
 .passwordSignUpInput {
@@ -63,38 +98,182 @@
   margin: auto;
 }
 .passwordSignUpInput svg {
-  color: white;
+  color: rgb(28, 32, 32);
 }
 
 .Button_ {
-  width: 50%;
-
   transform: translate(-50%, -50%);
   position: absolute;
-  width: 150px;
+  width: 200px;
   height: 40px;
-  left: 49%;
+  left: 49.9%;
   bottom: 30%;
-  margin: auto;
-  padding: auto;
-  background: #ffffff;
-  box-shadow: 0px 4px 50px 10px rgba(23, 34, 39, 0.15);
+  letter-spacing: 5px;
+  font-weight: 15px;
+  font-size: 20px;
   border-radius: 10px;
+  line-height: 15px;
+  background: linear-gradient(180deg, #2a2e2e 0%, #171b1b 100%);
+  box-shadow: 0px 4px 50px 10px rgba(255, 102, 0, 0.993);
+  border: transparent;
+  color: #ff6600;
+  cursor: pointer;
+
+  box-shadow: 0px 4px 4px rgba(255, 139, 6, 0.87);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.Button_:hover {
+  color: #f5680b;
+  background: #ffffff;
 }
 
 .navbar-container {
-  margin: 40px;
-  background-color: aquamarine;
+  background: linear-gradient(
+      0.14deg,
+      rgba(165, 167, 152, 0.445) 6.87%,
+      rgb(254, 255, 247) 100.94%
+    ),
+    #131c20;
   height: 60px;
   display: flex;
   justify-content: right;
   align-items: center;
-  
 }
 .navbar {
- 
   display: flex;
   flex-direction: row;
   gap: 30px;
   margin-right: 30px;
+  color: #ff9102;
+}
+.navbar-btn {
+  color: black;
+}
+.active {
+  color: #ff9900;
+}
+.logout- ~ button:hover {
+  color: #ff9900;
+  background: #ffffff;
+}
+.account-big-container {
+  margin-top: 40px;
+
+  width: 100vw;
+  height: 70%;
+}
+.account-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100%;
+}
+.acc-users-text {
+  padding-left: 2%;
+  color: white;
+  font-size: x-large;
+
+  width: 68%;
+  height: 50px;
+}
+.acc-transations-text {
+  font-size: x-large;
+  color: white;
+  height: 50px;
+  width: 30%;
+}
+.users-myaccount {
+  overflow: scroll;
+  padding-left: 1%;
+  width: 69%;
+  height: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4%;
+}
+.transactions-myaccount {
+  width: 30%;
+  display: flex;
+  height: 900px;
+  overflow: scroll;
+}
+.transactions-myaccount-container {
+  margin-right: 4%;
+  padding: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border-radius: 20px;
+}
+.transaction-text {
+  width: 50%;
+}
+.accInfo {
+  background: linear-gradient(
+      0.14deg,
+      rgba(212, 214, 190, 0.445) 6.87%,
+      rgb(248, 248, 245) 100.94%
+    ),
+    #131c20;
+  justify-content: start;
+  width: 30%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 1px 10px 1px rgba(255, 255, 255, 0.534);
+}
+.acc-big-container {
+  height: 100vh;
+  background: linear-gradient(
+      0.14deg,
+      rgba(249, 255, 237, 0.2) 19.87%,
+      rgba(12, 22, 24, 0.2) 100.94%
+    ),
+    #131c20;
+}
+.profile-big-container {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container {
+  margin-right: 130px;
+  width: 500px;
+}
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+.profile-img {
+  background-color: #ffffff;
+  border: 3px solid #555;
+  border-color: aliceblue;
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+}
+.profile-text {
+  width: 50%;
+  padding-left: 30px;
+  color: #ffffff;
+  font-size: x-large;
+}
+.green {
+  background-color: green;
+}
+.black {
+  background-color: black;
+}
+.red {
+  background-color: red;
+}
+.purple {
+  background-color: purple;
+}
+.user-container {
+  margin-left: 280px;
 }
