@@ -3,7 +3,7 @@ import chip from "../images/chip.png";
 import logo from "../images/logo.png";
 import Navbar from "../components/Navbar";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { checkToken, getBalance } from "../API/auth";
+import { getBalance } from "../API/auth";
 import { deposit, withdraw } from "../API/transactions";
 import UserContext from "../context/UserContext";
 import { Navigate } from "react-router-dom";

@@ -6,6 +6,7 @@ import UserContext from "../context/UserContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import UserSvg from "../SVGs/UserSvg";
 import LockSvg from "../SVGs/LockSvg";
+
 export const Register = () => {
   const [user, setUser] = useContext(UserContext);
   const [userInfo, setUserInfo] = useState({});
@@ -18,7 +19,11 @@ export const Register = () => {
       setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
     }
   };
-  const { mutate: registerFn } = useMutation({
+  const {
+    mutate: registerFn,
+    isError,
+    error,
+  } = useMutation({
     mutationFn: () => register(userInfo),
     onSuccess: () => setUser(checkToken()),
   });
@@ -27,10 +32,13 @@ export const Register = () => {
     e.preventDefault();
     registerFn();
     console.log(userInfo);
-    navigate("/home");
+    // navigate("/home");
   };
   if (user) {
     return <Navigate to="/home" />;
+  }
+  if (isError) {
+    return console.log("Errooor");
   }
   return (
     <div className="main-big-container">
@@ -39,8 +47,9 @@ export const Register = () => {
           {" "}
           <h1>REGISTER</h1>
         </div>
-        <form onSubmit={handleFormSubmit}>
-          {/* <div>
+        <div>
+          <form onSubmit={handleFormSubmit}>
+            {/* <div>
             <label htmlFor="username">username</label>
             <input
               type="text"
@@ -74,80 +83,72 @@ export const Register = () => {
           <div className="flex justify-center">
             <button type="submit">Register</button>
           </div> */}
-        </form>
-        <Modal.Body>
-          <form onSubmit={handleFormSubmit}>
-            <InputGroup className="usernameSignUpInput">
-              <InputGroup.Text></InputGroup.Text>
-              <UserSvg />
-              <FormControl
-                placeholder=" username"
-                name="username"
-                type="text"
-                onChange={handleChange}
-                style={{ width: "300px", height: "25px" }}
-              />
-            </InputGroup>
-            <InputGroup className="passwordSignUpInput">
-              <InputGroup.Text></InputGroup.Text>
-              <LockSvg />
-              <FormControl
-                name="password"
-                type="password"
-                onChange={handleChange}
-                placeholder="Password"
-                style={{
-                  width: "300px",
-                  height: "25px",
-                  backgroundColor: "",
-                }}
-              />
-            </InputGroup>
-            <div>
-              <label htmlFor="image">Avatar </label>
-              <input
-                style={{
-                  border: "none",
-                  borderRadius: "5px",
-                  color: "black",
-                  cursor: "pointer",
-                }}
-                type="file"
-                id="image"
-                name="image"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            {/* <input type="file" hidden />
-            <button
-              style={{
-                border: "none",
-                borderRadius: "5px",
-                color: "black",
-                cursor: "pointer",
-              }}
-              onChange={handleChange}
-              required
-            >
-              Choose File
-            </button>
-            <span>No Image Chosen</span> */}
-
-            <Button
-              className="Button_"
-              variant="outline-dark"
-              type="submit"
-              style={{
-                cursor: "pointer",
-                marginTop: "15px",
-              }}
-              onClick={handleFormSubmit}
-            >
-              SIGN UP
-            </Button>
           </form>
-        </Modal.Body>
+          <Modal.Body>
+            <form onSubmit={handleFormSubmit}>
+              <div>
+                <div>
+                  <InputGroup className="usernameSignUpInput">
+                    <InputGroup.Text></InputGroup.Text>
+                    <UserSvg />
+                    <FormControl
+                      placeholder=" username"
+                      name="username"
+                      type="text"
+                      onChange={handleChange}
+                      style={{ width: "300px", height: "25px" }}
+                    />
+                  </InputGroup>
+                  <InputGroup className="passwordSignUpInput">
+                    <InputGroup.Text></InputGroup.Text>
+                    <LockSvg />
+                    <FormControl
+                      name="password"
+                      type="password"
+                      onChange={handleChange}
+                      placeholder="Password"
+                      style={{
+                        width: "300px",
+                        height: "25px",
+                        backgroundColor: "",
+                      }}
+                    />
+                  </InputGroup>
+                  <div>
+                    <label htmlFor="image">Avatar </label>
+                    <input
+                      style={{
+                        border: "none",
+                        borderRadius: "5px",
+                        color: "black",
+                        cursor: "pointer",
+                      }}
+                      type="file"
+                      id="image"
+                      name="image"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="sign-up-btn">
+                <Button
+                  className="Button_"
+                  variant="outline-dark"
+                  type="submit"
+                  style={{
+                    cursor: "pointer",
+                    marginTop: "15px",
+                  }}
+                  onClick={handleFormSubmit}
+                >
+                  SIGN UP
+                </Button>
+              </div>
+            </form>
+          </Modal.Body>
+        </div>
       </div>
     </div>
   );

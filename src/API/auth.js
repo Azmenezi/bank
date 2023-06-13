@@ -6,6 +6,13 @@ const login = async (userInfo) => {
     storeToken(data.access);
     return data;
   } catch (error) {
+    if (error.response.data.name === "ValidationError") {
+        alert(
+            "password with value (adswda) fails to match the required pattern: /[a-zA-Z0-9]{8,30}/"
+        );
+      } else if (error.response.data.name === "Authentication Error") {
+        alert("Invalid credentials");
+      }
     console.log(error);
   }
 };
@@ -18,6 +25,13 @@ const register = async (userInfo) => {
     storeToken(data.access);
     return data;
   } catch (error) {
+    if (error.response.data.name === "ValidationError") {
+        alert(
+          "Your password must contain at least 1 uppercase letter, 1 number, and no less than 8 characters"
+        );
+      } else if (error.response.data.name === "MongoServerError") {
+        alert("This user already exists");
+      }
     console.log(error.response);
   }
 };

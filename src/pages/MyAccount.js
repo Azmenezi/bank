@@ -76,7 +76,7 @@ export const MyAccount = () => {
 
         <div className="account-big-container">
           <div className="account-container">
-            <div className="acc-users-text">Users</div>
+            <div className="acc-users-text">USERS</div>
             <div className="acc-transations-text">Transactions History</div>
             <div className="users-search"></div>
             <Searchbar />

@@ -241,6 +241,11 @@
   align-items: center;
   box-shadow: 0px 1px 10px 1px rgba(255, 255, 255, 0.534);
 }
+.accInfo:hover {
+  color: #f5680b;
+  background: #ffffff;
+}
+
 .acc-big-container {
   height: 100vh;
   background: linear-gradient(
@@ -282,16 +287,16 @@
   font-size: x-large;
 }
 .green {
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.379);
 }
 .black {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.277);
 }
 .red {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.262);
 }
 .purple {
-  background-color: purple;
+  background-color: rgba(128, 0, 128, 0.285);
 }
 .user-container {
   margin-left: 280px;
@@ -306,13 +311,20 @@
 .tranbutton {
   position: absolute;
   bottom: -50%;
-  right: -15%;
+  right: -30%;
+  width: 80%;
+  height: 35%;
   border-radius: 6px;
   background-color: #f5680b;
-  border: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-style: bold;
   color: #131c20;
+}
+
+.tranbutton:hover {
+  color: #ffffff;
+  background-color: #131c20;
 }
 
 /* ///////////////////////////////////////
@@ -580,5 +592,8 @@ body {
 }
 
 .home-container {
-  margin-top: 20px;
+  margin-top: 190px;
+}
+.sign-up-btn {
+  margin-top: 120px;
 }
