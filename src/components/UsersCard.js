@@ -1,7 +1,7 @@
 import React from "react";
 
-const Users = () => {
+const UsersCard = () => {
   return <div>Users</div>;
 };
 
-export default Users;
+export default UsersCard;
