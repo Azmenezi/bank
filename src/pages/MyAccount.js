@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { useQuery } from "@tanstack/react-query";
@@ -17,6 +18,21 @@ export const MyAccount = () => {
           <h3>balance</h3>
         </div>
       </div>
+=======
+import React, { useContext } from "react";
+import Navbar from "../components/Navbar";
+import UserContext from "../context/UserContext";
+import { Navigate } from "react-router-dom";
+export const MyAccount = () => {
+  const [user, setUser] = useContext(UserContext);
+  if (!user) {
+    return <Navigate to="/" />;
+  }
+  return (
+    <div>
+      <Navbar />
+      
+>>>>>>> 7261a3629bec1a977fe7f5dca506b5f08d912be1
     </div>
   );
 };

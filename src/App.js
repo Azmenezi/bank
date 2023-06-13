@@ -29,8 +29,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/transaction" element={<Transactions />} />
+<<<<<<< HEAD
           <Route path="/transaction/:tranId" element={<Transaction />} />
           <Route path="/myaccount" element={<MyAccount />} />
+=======
+          <Route path="/my-account" element={<MyAccount />} />
+>>>>>>> 7261a3629bec1a977fe7f5dca506b5f08d912be1
           <Route path="/users" element={<Users />} />
         </Routes>
       </div>
